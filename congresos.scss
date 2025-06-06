@@ -1,0 +1,54 @@
+/*-- scss:defaults --*/
+
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+  
+}
+
+.red {
+  color: #CF4078; 
+}
+
+.highlight-blue {
+  color: #0077CC; /* un azul vivo, puedes cambiarlo */
+  font-weight: bold; /* opcional para que resalte más */
+}
+
+
+#title-slide .title {
+  /*font-size: 1em;*/
+  text-align: center;
+}
+
+.subtitle{
+  font-size: 1.2em;
+}
+
+
+.tiny { font-size: 60% }
+.small { font-size: 80% }
+.small90 { font-size: 90% }
+.small70 { font-size: 70% }
+
+.ack { 
+  font-size: 80%;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: block;
+  float: left;
+}
+
+/* Establecer color de fondo y texto para todas las diapositivas */
+.reveal {
+  background-color: #F6FCFF;
+  color: #012779;
+}
+
+/* Asegurar que el color de texto personalizado se aplique a elementos principales */
+.reveal h1, .reveal h2, .reveal h3, .reveal p, .reveal li {
+  color: #012779;
+}

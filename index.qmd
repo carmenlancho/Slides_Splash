@@ -1,0 +1,414 @@
+---
+title: "From <span class='highlight-blue'>splash</span> to <span class='highlight-blue'>stats</span>: Analysis of swimming performance with R"
+subtitle: "SEIO 2025"
+author: "A. González Romero, C. Lancho Martín, Á. Novillo, V. Aceña, J. García-Ochoa, I. Martín de Diego"
+institute: "Data Science Laboratory, Universidad Rey Juan Carlos"
+format: 
+  revealjs:
+    theme: [solarized, congresos.scss]
+    footer: "SEIO 2025, 10 de junio 2025"
+    logo: img/DSLab_logo.png
+    menu:
+      numbers: false
+    show-slide-number: all
+    slide-number: true
+    self-contained: false
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Contents
+
+-   Context
+    -   Data Science
+    -   Sport Analytics
+    -   Swimming
+-   Static analysis
+-   The need for dynamism
+    -   Clustering streaming data
+    -   App in RShiny
+
+## Data Science
+
+::: columns
+::: {.column width="50%"}
+![](img/ds_venn_OP3.png){width="100%"} <br> [              
+Foundations]{.caption}
+:::
+
+::: {.column width="50%"}
+![](img/DS_cycle_prepro.png){width="85%"} <br> [               
+Applications]{.caption}
+:::
+:::
+
+## Sport Analytics: when sport meets data
+
+-   The application of **data science, statistics, and technology** to
+    analyze and improve athletic performance.
+-   Gained momentum in the early 2000s with advances in tracking
+    systems, video analysis, and machine learning.
+-   Used in coaching, injury prevention, game strategy, talent
+    identification, and fan engagement.
+
+## Sport Analytics: when sport meets data
+
+::: {.columns style="align-items: center;"}
+::: {.column style="width: 65%;"}
+<strong>Famous examples:</strong>
+
+<ul>
+
+<li><em>Moneyball</em></li>
+
+<li>NBA -- player tracking, shot charts, load management</li>
+
+<li>Football -- GPS-based workload monitoring</li>
+
+<li>Running, cycling -- biomechanical and physiological modeling</li>
+
+</ul>
+:::
+
+::: {.column style="width: 35%;"}
+<img src="img/moneyball.jpg" style="width: 100%;"/>
+:::
+:::
+
+Davenport, T. H. (2014). Analytics in sports: The new science of
+winning. International Journal of Sports Science & Coaching, 9(1), 1--2.
+
+Alamar, B. C. (2013). Sports analytics: A guide for coaches, managers,
+and other decision makers.
+
+Sampaio, J., & Leite, N. (2013). Performance analysis in team sports:
+Advances and future directions.
+
+METER ALGUNA CITA DE ARTURO CASADO
+
+## Swimming: precision, performance, and patterns
+
+-   Swimming is **highly measurable**: distances, times, splits, stroke
+    rates, turn times.
+-   Small performance changes (e.g., 0.1s) can determine podiums ---
+    **data granularity matters**.
+-   Technology enables detailed monitoring:
+    -   Wearable sensors (IMUs)
+    -   Underwater cameras
+    -   Biomechanical modeling
+    -   Lactate and heart rate tracking
+
+## Swimming
+
+Student and domain expert: Alonso González Romero
+
+![](img/alonso.png){fig-align="center" width="600"}
+
+## Prueba gif
+
+![](img/200braza.gif){fig-align="center" width="50%"}
+
+## Proyectos de investigación: Caderas
+
+-   Predicción de la capacidad para deambulación al mes de fractura de
+    cadera
+
+    <https://clancho.shinyapps.io/APP_fractura_cadera/>
+
+## Proyectos de investigación: DICYME
+
+-   Dynamic Industrial Cyber Risk Modelling based on Evidence (DICYME)
+    research project (CPP2021-009025)
+
+-   Proyecto de colaboración público-privada con DeNexus TECH SL.
+
+-   Dashboard: <https://gondor.etsii.urjc.es:3866>
+
+-   Conexión con MongoDB
+
+-   App relacionada: [CRAS](http://gondor.etsii.urjc.es:3804/)
+
+# Docencia
+
+## Asignaturas en abierto
+
+-   Aprendizaje automático:
+    <https://urjcdslab.github.io/AprendizajeAutomaticoI/>
+
+-   Inferencia estadística:
+    <https://urjcdslab.github.io/InferenciaEstadistica/>
+
+## Grados/Master
+
+-   Matemáticas, Ciencia e Ingeniería de Datos, Biología, Ingeniería
+    Industrial, Ingeniería de la Ciberseguridad, Inteligencia
+    Artificial, Ingeniería Informática, Diseño y Desarrollo de
+    Videojuegos, Máster Data Science, Máster en Dirección de Turismo
+    Internacional, etc.
+
+## Seminarios
+
+-   Primer dashboard en Shiny:
+
+    <https://github.com/carmenlancho/Seminario_CienciasSalud>
+
+-   Gráficos interactivos en R:
+
+    <https://github.com/carmenlancho/GraficosInteractivosR>
+
+-   Generación con R de tablas y gráficos listos para publicar
+    <https://emilopezcano.github.io/seminario_fcs_urjc_2024/>
+
+## Libros CC
+
+-   [Estadística Aplicada a las Ciencias y la
+    Ingeniería](https://emilopezcano.github.io/estadistica-ciencias-ingenieria/index.html)
+
+-   [Introducción al software estadístico
+    R](https://www.lcano.com/b/iser/_book/)
+
+-   Algún otro inacabado, y otros un tanto obsoletos
+
+-   Obra colectiva [Fundamentos de ciencia de datos con
+    R](https://cdr-book.github.io) editada por Gema Fernández-Avilés y
+    José María Montero.
+
+## Proyectos docentes
+
+-   Proyecto de Innovación Educativa: DSEXAMS
+
+    Paquete de R: <https://github.com/URJCDSLab/dsexams> [Presentación
+    en EDULEARN 23](https://www.lcano.com/p/edulearn23/#/title-slide)
+
+## TFGs
+
+-   [placido: un paquete y aplicación shiny para evaluar el contenido
+    efectivo de los
+    envases](https://www.lcano.com/p/seio2023/#/title-slide)
+
+-   [Unit testing in Statistical Software: an implementation in the 📦
+    {SixSigma} R package](https://www.lcano.com/p/seio2022a/#1)
+
+## Apps docentes
+
+-   [Probabilidad](https://elcano.shinyapps.io/probability_as_relative_frequency/)
+
+-   [Derivada](https://elcano.shinyapps.io/derivada/)
+
+-   [Criptografía](https://elcano.shinyapps.io/cesar/)
+
+-   [Control de calidad](https://lcano.shinyapps.io/demo-shiny-quality/)
+
+-   [Monty Hall](https://elcano.shinyapps.io/monty_hall/)
+
+# Transferencia - Casos de éxito
+
+## EVASTUR
+
+-   Proyecto con la empresa [Dephimática](https://www.dephimatica.es)
+
+-   Especializada en estadística pública
+
+-   *Capacity building* en Ciencia de Datos
+
+-   Sistema de indicadores de turismo sostenible: exploración,
+    visualización, análisis
+
+<!-- <img src="img/dephimatica.png" width="50%"/> -->
+
+<div>
+
+![](img/dephimatica.png){width="50%" fig-align="center"}
+
+</div>
+
+## EVASTUR - Dashboard
+
+![](img/evastur.png){width="70%" fig-align="center"}
+
+::: {style="text-align:center"}
+🖥️ Live demo 🤞🏻
+:::
+
+## EPE Brasil
+
+-   Weaving Connections: A Comprehensive Diagnosis of Access to and Use
+    of Electricity and Essential Services by Low-Income Population (MRC-
+    SP 0366)
+
+-   Proyecto de transferencia con MRC Consultants and Advisors (Grupo
+    Veolia)
+
+-   ETL, Modelo de datos, visualización
+
+-   Indicadores de pobreza energética (UCM)
+
+-   Presentado en reunión del G20
+
+## OBEPE
+
+![](img/obepe.png){width="70%" fig-align="center"}
+
+[Acknowledgements:]{.ack} ![](img/logo_idb.png){height="50"}
+![](img/logo_epe_colors.jpg){height="50"}
+![](img/logo_mme.png){height="50"}
+
+::: {style="text-align:center"}
+🖥️ Live demo 🤞🏻
+:::
+
+## SHAPYPRO
+
+::: columns
+::: {.column width="60%"}
+-   [Empresa biotecnológica](https://shapypro.com)
+-   Proficiency Testing
+-   Asesoría en ciencia de datos, informes parcialmente automatizados.
+-   En proceso: paquete y aplicación shiny
+
+<img src="img/shapypro.png" style="width:60%;margin-left:auto;margin-right:auto;display:block;"/>
+:::
+
+::: {.column width="40%"}
+<blockquote class="twitter-tweet">
+
+<p lang="es" dir="ltr">
+
+📍ENAC ha concedido recientemente la primera acreditación a
+<a href="https://twitter.com/shapypro?ref_src=twsrc%5Etfw">@SHAPYPRO</a>
+como proveedor de ensayos de aptitud de eficacia biocida en productos
+antisépticos y desinfectantes químicos. Estos ensayos están destinados a
+la evaluación de los biocidas en base a su actividad (bactericida,...
+<a href="https://t.co/T2WMrB3EWQ">pic.twitter.com/T2WMrB3EWQ</a>
+
+</p>
+
+--- ENAC (@ENAC_acredita)
+<a href="https://twitter.com/ENAC_acredita/status/1845762208606642671?ref_src=twsrc%5Etfw">October
+14, 2024</a>
+
+</blockquote>
+
+```{=html}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+```
+:::
+:::
+
+## IMASDE Agroalimentaria
+
+-   <https://e-imasde.eu/language/es/home/>
+
+-   TFG aprendizaje automático
+
+-   Informes automatizados de I+D+i
+
+-   *Capacity building*
+
+::: {style="text-align:center"}
+![](img/imasde.png){width="400px"}
+:::
+
+## AfCIOT - TiVA indicators
+
+-   Joint project with [UNECA](https://www.uneca.org),
+    [WTO](https://www.wto.org), and [OECD](https://www.oecd.org)
+
+-   International Trade, Environmental and Employment Indicators
+
+-   International and multidisciplinar team
+
+-   Industry and product classification, gap estimation, policy
+    simulation and [visualisation]{.red}
+
+-   Key result: A [shiny app]{.red} for reporting, visualisation and
+    policy simulation
+
+-   Several important challenges for the multinational scope
+
+## AfCIOT - TiVA indicators
+
+![](img/afciot.png){width="70%" fig-align="center"}
+
+[Acknowledgements:]{.ack} ![](img/uneca.png){height="50"}
+![](img/wto.png){height="50"} ![](img/oecd.png){height="50"}
+
+::: {style="text-align:center"}
+🖥️ Live demo 🤞🏻
+:::
+
+## Síagro - Animal production SPC
+
+::: columns
+::: {.column width="40%"}
+-   [CRO clinical and nutritional trials](http://www.testsandtrials.com)
+-   Shiny app for their customers as a value added service
+-   Important \[**productivity improvements**\]
+-   Simulation and parameterised reports
+:::
+
+::: {.column width="60%"}
+![](img/testsapp.png)
+
+<img src="img/tests.png" style="width:50%;margin-left:auto;margin-right:auto;display:block;"/>
+
+::: small
+<https://www.siagro.es> \| 🖥️ Live demo 🤞🏻
+:::
+:::
+:::
+
+## Smart Cities
+
+-   Use cases for Tourism, Healthcare, and Infrastructures in Madrid
+    Region
+
+-   Coherent step-by-step apps for the use cases (load data -
+    visualisation - modelling - getting results)
+
+-   Some use cases with [Shiny]{.red}, other with Python or Power BI
+
+-   Example: <http://www.citizenlabhub.es/cu/55>
+
+# Conclusiones y trabajo futuro
+
+## Conclusiones
+
+-   R nos ayuda en gran diversidad de tareas
+
+-   R, R markdown, quarto, shiny favorece y facilita su uso
+
+-   Estamos listos para despliegues en producción, sin complejos
+
+## Trabajo futuro
+
+-   Paquete de R asociado a Tesis doctoral
+
+-   Más dashboard
+
+-   Mejorar la generación de apuntes con R
+
+-   Más proyectos con empresas
+
+-   Más proyectos en organismos internacionales
+
+-   Nueva tesis doctoral 😉
+
+# ¡Gracias!
+
+[carmen.lancho\@urjc.es]{.red}
+
+[emilio.lopez\@urjc.es]{.red}
+
+<!-- `r fontawesome::fa("x-twitter", fill = "#749dae")` -->
+
+[\@DSLAB_URJC](https://x.com/DSLAB_URJC)
+
+<https://www.datasciencelab.es>
+
+Slides: <https://urjcdslab.github.io/rmadrid92>
+
+\
+
+**Preguntas**
