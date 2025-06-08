@@ -235,16 +235,7 @@ tativa y eficiente ante la naturaleza cambiante de los flujos de información.
 
 ## Static results
 
--   Dynamic Industrial Cyber Risk Modelling based on Evidence (DICYME)
-    research project (CPP2021-009025)
-
--   Proyecto de colaboración público-privada con DeNexus TECH SL.
-
--   Dashboard: <https://gondor.etsii.urjc.es:3866>
-
--   Conexión con MongoDB
-
--   App relacionada: [CRAS](http://gondor.etsii.urjc.es:3804/)
+MINI RESUMEN TÉCNICAS USADAS Y EJEMPLOS DE GRUPOS CON INTERPRETACIÓN
 
 ## Dynamic results
 
@@ -285,6 +276,15 @@ $\text{SI}(C) = \frac{1}{m} \sum_{i=1}^{m} \frac{b_i - a_i}{\max(a_i, b_i)}$
 
 Figure extracted from [@nordahl2022evolvecluster]
 
+## EvolveCluster adapted
+
+PONER CÓMO LO HA ADAPTADO ALONSO
+
+## Where the race breaks?
+
+IMAGEN DE CUANDO SE ROMPE LA CARRERA
+
+
 ## From splash to stats - Dashboard
 
 ![](img/fromsplashtostats_dashboard.png){width="70%" fig-align="center"}
@@ -295,9 +295,9 @@ Figure extracted from [@nordahl2022evolvecluster]
 
 
 
-# Conclusiones y trabajo futuro
+# Conclusions and future work
 
-## Conclusiones
+## Conclusions
 
 -   R nos ayuda en gran diversidad de tareas
 
@@ -305,7 +305,7 @@ Figure extracted from [@nordahl2022evolvecluster]
 
 -   Estamos listos para despliegues en producción, sin complejos
 
-## Trabajo futuro
+## Future work
 
 -   Paquete de R asociado a Tesis doctoral
 
@@ -324,11 +324,10 @@ Figure extracted from [@nordahl2022evolvecluster]
 ::: {#refs}
 :::
 
-# ¡Gracias!
+# ¡Thanks!
 
 [carmen.lancho\@urjc.es]{.red}
 
-[emilio.lopez\@urjc.es]{.red}
 
 <!-- `r fontawesome::fa("x-twitter", fill = "#749dae")` -->
 
@@ -340,4 +339,4 @@ Slides: <https://urjcdslab.github.io/rmadrid92>
 
 \
 
-**Preguntas**
+**Questions?**
