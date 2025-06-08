@@ -16,6 +16,7 @@ format:
 editor: 
   markdown: 
     wrap: 72
+bibliography: references.bib
 ---
 
 ## Contents
@@ -105,18 +106,134 @@ Student and domain expert: Alonso González Romero
 
 ![](img/alonso.png){fig-align="center" width="600"}
 
-## Prueba gif
+## Data
+
+aplica técnicas de ciencia de datos al análisis del
+rendimiento en natación competitiva, utilizando los resultados del Campeonato
+Mundial de Natación Budapest 2024 en piscina de 25 metros.
+En la primera parte del estudio se utilizan técnicas de clustering tradicional
+con el objetivo de identificar cómo los nadadores plantean una determinada prue-
+ba. Posteriormente, se usan técnicas innovadoras para datos en streaming con el
+objetivo de identificar grupos de carrera en directo.
+
+Data source: [Omega timing](https://www.omegatiming.com/sports-timing-live-results)
+Omega es patrocinador
+técnico principal de las competiciones de natación a nivel internacional
+
+## Exploratory Data Analysis (EDA)
+
+- Age
+
+![](img/edad.png){fig-align="center" width="50%"}
+
+
+## Exploratory Data Analysis (EDA)
+
+- Age
+
+![](img/media_puntos_edad.png){fig-align="center" width="50%"}
+
+
+## EDA
+
+ - Distribution of swimmers per country
+
+![](img/mapa_nadadores.png){fig-align="center" width="50%"}
+
+
+## EDA
+
+- Reaction time
+
+![](img/reaction_time_density.png){fig-align="center" width="50%"}
+
+## EDA
+
+- Reaction time
+
+![](img/reaction_time_distance_style.png){fig-align="center" width="50%"}
+
+
+
+## EDA: speed pattern across the race
+::: columns
+::: {.column width="50%"}
+![](img/summer_road_to_champion_400_free.png){width="94%"} <br>
+:::
+
+::: {.column width="50%"}
+![](img/summer_400_road_to_champion_medley.png){width="100%"} <br> 
+:::
+:::
+
+
+## EDA: Different patterns/strategies
+::: columns
+::: {.column width="50%"}
+![](img/summer_road_to_champion_400_free.png){width="94%"} <br>
+:::
+
+::: {.column width="50%"}
+![](img/elijah_road_to_champion_400_free.png){width="100%"} <br> 
+:::
+:::
+
+
+ ⟶  Clustering
+
+## EDA: Race evolution
+
+![](img/evolucion_carrera.png){fig-align="center" width="50%"}
+
+ ⟶  Lack of dynamism
+
+
+## EDA: Dynamic race evolution
 
 ![](img/200braza.gif){fig-align="center" width="50%"}
 
-## Proyectos de investigación: Caderas
 
--   Predicción de la capacidad para deambulación al mes de fractura de
-    cadera
 
-    <https://clancho.shinyapps.io/APP_fractura_cadera/>
+## Approach
 
-## Proyectos de investigación: DICYME
+- Static and dynamic analysis
+  - Static: clustering to find group of speed patterns
+    - Classic clustering techniques with static data  with different distances: Euclidean and Dynamic Time Warping (DTW)
+  - Dynamic: streaming data
+    - Evolutive clustering
+    
+## Static vs dynamic
+
+En el mundo de la Ciencia de datos, existen dos tipos de datos dependiendo
+de la disponibilidad temporal:
+Datos estáticos: Están completamente disponibles desde el inicio del es-
+tudio. Se pueden explorar, limpiar y entrenar con tranquilidad.
+Datos en streaming (flujo continuo): Los datos van llegando en tiempo
+real, de forma continua.
+Los algoritmos de clustering tradicionales, explicados en la sección Clustering,
+se basan en la suposición de que el conjunto de datos completo está disponible
+desde el inicio del análisis. Este enfoque resulta adecuado en contextos estáticos,
+donde los datos no varı́an con el tiempo y se puede aplicar el agrupamiento de
+forma global y estable. Sin embargo, en entornos dinámicos donde los datos se
+generan de forma continua —como ocurre en los flujos de datos o data streams—
+este tipo de enfoque pierde su validez.
+Una caracterı́stica esencial de los datos en streaming es la existencia de una
+dependencia temporal implı́cita: las observaciones que llegan en un instante dado
+suelen estar relacionadas con las generadas previamente, lo que introduce un
+componente evolutivo en la estructura de los datos. Esto hace que los algoritmos
+de clustering diseñados para datos estáticos se vuelvan rápidamente obsoletos, ya
+que no son capaces de adaptarse a los cambios en la distribución o caracterı́sticas
+de los datos que se van incorporando.
+Como respuesta a esta limitación, surgen los algoritmos de clustering evo-
+lutivo, diseñados especı́ficamente para trabajar en contextos de datos en flujo.
+Estos algoritmos no solo procesan los datos de forma secuencial, sino que utilizan
+la información obtenida en iteraciones anteriores para actualizar y redefinir la
+estructura de los clústeres en tiempo real. De este modo, permiten capturar la
+evolución de los patrones presentes en los datos, ofreciendo una solución adap-
+tativa y eficiente ante la naturaleza cambiante de los flujos de información.
+
+
+## Static results
 
 -   Dynamic Industrial Cyber Risk Modelling based on Evidence (DICYME)
     research project (CPP2021-009025)
@@ -129,247 +246,54 @@ Student and domain expert: Alonso González Romero
 
 -   App relacionada: [CRAS](http://gondor.etsii.urjc.es:3804/)
 
-# Docencia
+## Dynamic results
 
-## Asignaturas en abierto
+As noted by Maglischo [@maglischo2003], swimming is particularly suited to performance analysis.
 
--   Aprendizaje automático:
-    <https://urjcdslab.github.io/AprendizajeAutomaticoI/>
 
--   Inferencia estadística:
-    <https://urjcdslab.github.io/InferenciaEstadistica/>
 
-## Grados/Master
+## EvolveCluster: Evolutionary Clustering for Streaming Data
+<div style="font-size: 70%;">
+[@nordahl2022evolvecluster]
+- Segments the data stream into time-based chunks $D_0, D_1, \ldots, D_t$
+- For each segment $D_t$, clustering is initialized using centroids from $C_{t-1}$
+- Applies refinement and split-check steps to adapt clusters
 
--   Matemáticas, Ciencia e Ingeniería de Datos, Biología, Ingeniería
-    Industrial, Ingeniería de la Ciberseguridad, Inteligencia
-    Artificial, Ingeniería Informática, Diseño y Desarrollo de
-    Videojuegos, Máster Data Science, Máster en Dirección de Turismo
-    Internacional, etc.
+### Main algorithm steps:
 
-## Seminarios
+1. **Initial clustering** using $C_{t-1}$ as seeds:
+   $C_t \leftarrow \text{InitialPartition}(D_t, c_1, \ldots, c_k)$
+2. **Refinement** with $k$-medoids:
+   $C_t \leftarrow \text{RefineSolution}(C_t)$
+3. **Silhouette Index evaluation**:
+   $S = \text{SI}(C_t)$
+4. **Iterative cluster splitting** based on 2-means:
+   $\text{If } \text{SI}(C'_t) > S + \tau \Rightarrow C_t \leftarrow C'_t$
 
--   Primer dashboard en Shiny:
+---
 
-    <https://github.com/carmenlancho/Seminario_CienciasSalud>
+### Key Metric: Silhouette Index
 
--   Gráficos interactivos en R:
-
-    <https://github.com/carmenlancho/GraficosInteractivosR>
-
--   Generación con R de tablas y gráficos listos para publicar
-    <https://emilopezcano.github.io/seminario_fcs_urjc_2024/>
-
-## Libros CC
-
--   [Estadística Aplicada a las Ciencias y la
-    Ingeniería](https://emilopezcano.github.io/estadistica-ciencias-ingenieria/index.html)
-
--   [Introducción al software estadístico
-    R](https://www.lcano.com/b/iser/_book/)
-
--   Algún otro inacabado, y otros un tanto obsoletos
-
--   Obra colectiva [Fundamentos de ciencia de datos con
-    R](https://cdr-book.github.io) editada por Gema Fernández-Avilés y
-    José María Montero.
-
-## Proyectos docentes
-
--   Proyecto de Innovación Educativa: DSEXAMS
-
-    Paquete de R: <https://github.com/URJCDSLab/dsexams> [Presentación
-    en EDULEARN 23](https://www.lcano.com/p/edulearn23/#/title-slide)
-
-## TFGs
-
--   [placido: un paquete y aplicación shiny para evaluar el contenido
-    efectivo de los
-    envases](https://www.lcano.com/p/seio2023/#/title-slide)
-
--   [Unit testing in Statistical Software: an implementation in the 📦
-    {SixSigma} R package](https://www.lcano.com/p/seio2022a/#1)
-
-## Apps docentes
-
--   [Probabilidad](https://elcano.shinyapps.io/probability_as_relative_frequency/)
-
--   [Derivada](https://elcano.shinyapps.io/derivada/)
-
--   [Criptografía](https://elcano.shinyapps.io/cesar/)
-
--   [Control de calidad](https://lcano.shinyapps.io/demo-shiny-quality/)
-
--   [Monty Hall](https://elcano.shinyapps.io/monty_hall/)
-
-# Transferencia - Casos de éxito
-
-## EVASTUR
-
--   Proyecto con la empresa [Dephimática](https://www.dephimatica.es)
-
--   Especializada en estadística pública
-
--   *Capacity building* en Ciencia de Datos
-
--   Sistema de indicadores de turismo sostenible: exploración,
-    visualización, análisis
-
-<!-- <img src="img/dephimatica.png" width="50%"/> -->
-
-<div>
-
-![](img/dephimatica.png){width="50%" fig-align="center"}
+$\text{SI}(C) = \frac{1}{m} \sum_{i=1}^{m} \frac{b_i - a_i}{\max(a_i, b_i)}$
 
 </div>
 
-## EVASTUR - Dashboard
 
-![](img/evastur.png){width="70%" fig-align="center"}
+## EvolveCluster
 
-::: {style="text-align:center"}
-🖥️ Live demo 🤞🏻
-:::
+![](img/evolveCluster.png){fig-align="center" width="50%"}
 
-## EPE Brasil
+Figure extracted from [@nordahl2022evolvecluster]
 
--   Weaving Connections: A Comprehensive Diagnosis of Access to and Use
-    of Electricity and Essential Services by Low-Income Population (MRC-
-    SP 0366)
+## From splash to stats - Dashboard
 
--   Proyecto de transferencia con MRC Consultants and Advisors (Grupo
-    Veolia)
-
--   ETL, Modelo de datos, visualización
-
--   Indicadores de pobreza energética (UCM)
-
--   Presentado en reunión del G20
-
-## OBEPE
-
-![](img/obepe.png){width="70%" fig-align="center"}
-
-[Acknowledgements:]{.ack} ![](img/logo_idb.png){height="50"}
-![](img/logo_epe_colors.jpg){height="50"}
-![](img/logo_mme.png){height="50"}
+![](img/fromsplashtostats_dashboard.png){width="70%" fig-align="center"}
 
 ::: {style="text-align:center"}
 🖥️ Live demo 🤞🏻
 :::
 
-## SHAPYPRO
 
-::: columns
-::: {.column width="60%"}
--   [Empresa biotecnológica](https://shapypro.com)
--   Proficiency Testing
--   Asesoría en ciencia de datos, informes parcialmente automatizados.
--   En proceso: paquete y aplicación shiny
-
-<img src="img/shapypro.png" style="width:60%;margin-left:auto;margin-right:auto;display:block;"/>
-:::
-
-::: {.column width="40%"}
-<blockquote class="twitter-tweet">
-
-<p lang="es" dir="ltr">
-
-📍ENAC ha concedido recientemente la primera acreditación a
-<a href="https://twitter.com/shapypro?ref_src=twsrc%5Etfw">@SHAPYPRO</a>
-como proveedor de ensayos de aptitud de eficacia biocida en productos
-antisépticos y desinfectantes químicos. Estos ensayos están destinados a
-la evaluación de los biocidas en base a su actividad (bactericida,...
-<a href="https://t.co/T2WMrB3EWQ">pic.twitter.com/T2WMrB3EWQ</a>
-
-</p>
-
---- ENAC (@ENAC_acredita)
-<a href="https://twitter.com/ENAC_acredita/status/1845762208606642671?ref_src=twsrc%5Etfw">October
-14, 2024</a>
-
-</blockquote>
-
-```{=html}
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-```
-:::
-:::
-
-## IMASDE Agroalimentaria
-
--   <https://e-imasde.eu/language/es/home/>
-
--   TFG aprendizaje automático
-
--   Informes automatizados de I+D+i
-
--   *Capacity building*
-
-::: {style="text-align:center"}
-![](img/imasde.png){width="400px"}
-:::
-
-## AfCIOT - TiVA indicators
-
--   Joint project with [UNECA](https://www.uneca.org),
-    [WTO](https://www.wto.org), and [OECD](https://www.oecd.org)
-
--   International Trade, Environmental and Employment Indicators
-
--   International and multidisciplinar team
-
--   Industry and product classification, gap estimation, policy
-    simulation and [visualisation]{.red}
-
--   Key result: A [shiny app]{.red} for reporting, visualisation and
-    policy simulation
-
--   Several important challenges for the multinational scope
-
-## AfCIOT - TiVA indicators
-
-![](img/afciot.png){width="70%" fig-align="center"}
-
-[Acknowledgements:]{.ack} ![](img/uneca.png){height="50"}
-![](img/wto.png){height="50"} ![](img/oecd.png){height="50"}
-
-::: {style="text-align:center"}
-🖥️ Live demo 🤞🏻
-:::
-
-## Síagro - Animal production SPC
-
-::: columns
-::: {.column width="40%"}
--   [CRO clinical and nutritional trials](http://www.testsandtrials.com)
--   Shiny app for their customers as a value added service
--   Important \[**productivity improvements**\]
--   Simulation and parameterised reports
-:::
-
-::: {.column width="60%"}
-![](img/testsapp.png)
-
-<img src="img/tests.png" style="width:50%;margin-left:auto;margin-right:auto;display:block;"/>
-
-::: small
-<https://www.siagro.es> \| 🖥️ Live demo 🤞🏻
-:::
-:::
-:::
-
-## Smart Cities
-
--   Use cases for Tourism, Healthcare, and Infrastructures in Madrid
-    Region
-
--   Coherent step-by-step apps for the use cases (load data -
-    visualisation - modelling - getting results)
-
--   Some use cases with [Shiny]{.red}, other with Python or Power BI
-
--   Example: <http://www.citizenlabhub.es/cu/55>
 
 # Conclusiones y trabajo futuro
 
@@ -394,6 +318,11 @@ la evaluación de los biocidas en base a su actividad (bactericida,...
 -   Más proyectos en organismos internacionales
 
 -   Nueva tesis doctoral 😉
+
+## References
+
+::: {#refs}
+:::
 
 # ¡Gracias!
 

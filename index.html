@@ -23,6 +23,25 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -407,19 +426,98 @@ Running, cycling – biomechanical and physiological modeling
 <p>Student and domain expert: Alonso González Romero</p>
 
 <img data-src="img/alonso.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="prueba-gif" class="slide level2">
-<h2>Prueba gif</h2>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<p>aplica técnicas de ciencia de datos al análisis del rendimiento en natación competitiva, utilizando los resultados del Campeonato Mundial de Natación Budapest 2024 en piscina de 25 metros. En la primera parte del estudio se utilizan técnicas de clustering tradicional con el objetivo de identificar cómo los nadadores plantean una determinada prue- ba. Posteriormente, se usan técnicas innovadoras para datos en streaming con el objetivo de identificar grupos de carrera en directo.</p>
+<p>Data source: <a href="https://www.omegatiming.com/sports-timing-live-results">Omega timing</a> Omega es patrocinador técnico principal de las competiciones de natación a nivel internacional</p>
+</section>
+<section id="exploratory-data-analysis-eda" class="slide level2">
+<h2>Exploratory Data Analysis (EDA)</h2>
+<ul>
+<li>Age</li>
+</ul>
+
+<img data-src="img/edad.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="exploratory-data-analysis-eda-1" class="slide level2">
+<h2>Exploratory Data Analysis (EDA)</h2>
+<ul>
+<li>Age</li>
+</ul>
+
+<img data-src="img/media_puntos_edad.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="eda" class="slide level2">
+<h2>EDA</h2>
+<ul>
+<li>Distribution of swimmers per country</li>
+</ul>
+
+<img data-src="img/mapa_nadadores.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="eda-1" class="slide level2">
+<h2>EDA</h2>
+<ul>
+<li>Reaction time</li>
+</ul>
+
+<img data-src="img/reaction_time_density.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="eda-2" class="slide level2">
+<h2>EDA</h2>
+<ul>
+<li>Reaction time</li>
+</ul>
+
+<img data-src="img/reaction_time_distance_style.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="eda-speed-pattern-across-the-race" class="slide level2">
+<h2>EDA: speed pattern across the race</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/summer_road_to_champion_400_free.png" style="width:94.0%"> <br></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/summer_400_road_to_champion_medley.png" style="width:100.0%"> <br></p>
+</div>
+</div>
+</section>
+<section id="eda-different-patternsstrategies" class="slide level2">
+<h2>EDA: Different patterns/strategies</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/summer_road_to_champion_400_free.png" style="width:94.0%"> <br></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/elijah_road_to_champion_400_free.png" style="width:100.0%"> <br></p>
+</div>
+</div>
+<p>⟶ Clustering</p>
+</section>
+<section id="eda-race-evolution" class="slide level2">
+<h2>EDA: Race evolution</h2>
+
+<img data-src="img/evolucion_carrera.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p>⟶ Lack of dynamism</p>
+</section>
+<section id="eda-dynamic-race-evolution" class="slide level2">
+<h2>EDA: Dynamic race evolution</h2>
 
 <img data-src="img/200braza.gif" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="proyectos-de-investigación-caderas" class="slide level2">
-<h2>Proyectos de investigación: Caderas</h2>
+<section id="approach" class="slide level2">
+<h2>Approach</h2>
 <ul>
-<li><p>Predicción de la capacidad para deambulación al mes de fractura de cadera</p>
-<p><a href="https://clancho.shinyapps.io/APP_fractura_cadera/" class="uri">https://clancho.shinyapps.io/APP_fractura_cadera/</a></p></li>
+<li>Static and dynamic analysis
+<ul>
+<li>Static: clustering to find group of speed patterns
+<ul>
+<li>Classic clustering techniques with static data with different distances: Euclidean and Dynamic Time Warping (DTW)</li>
+</ul></li>
+<li>Dynamic: streaming data
+<ul>
+<li>Evolutive clustering</li>
+</ul></li>
+</ul></li>
 </ul>
 </section>
-<section id="proyectos-de-investigación-dicyme" class="slide level2">
-<h2>Proyectos de investigación: DICYME</h2>
+<section id="static-vs-dynamic" class="slide level2">
+<h2>Static vs dynamic</h2>
+<p>En el mundo de la Ciencia de datos, existen dos tipos de datos dependiendo de la disponibilidad temporal: Datos estáticos: Están completamente disponibles desde el inicio del es- tudio. Se pueden explorar, limpiar y entrenar con tranquilidad. Datos en streaming (flujo continuo): Los datos van llegando en tiempo real, de forma continua. Los algoritmos de clustering tradicionales, explicados en la sección Clustering, se basan en la suposición de que el conjunto de datos completo está disponible desde el inicio del análisis. Este enfoque resulta adecuado en contextos estáticos, donde los datos no varı́an con el tiempo y se puede aplicar el agrupamiento de forma global y estable. Sin embargo, en entornos dinámicos donde los datos se generan de forma continua —como ocurre en los flujos de datos o data streams— este tipo de enfoque pierde su validez. Una caracterı́stica esencial de los datos en streaming es la existencia de una dependencia temporal implı́cita: las observaciones que llegan en un instante dado suelen estar relacionadas con las generadas previamente, lo que introduce un componente evolutivo en la estructura de los datos. Esto hace que los algoritmos de clustering diseñados para datos estáticos se vuelvan rápidamente obsoletos, ya que no son capaces de adaptarse a los cambios en la distribución o caracterı́sticas de los datos que se van incorporando. Como respuesta a esta limitación, surgen los algoritmos de clustering evo- lutivo, diseñados especı́ficamente para trabajar en contextos de datos en flujo. Estos algoritmos no solo procesan los datos de forma secuencial, sino que utilizan la información obtenida en iteraciones anteriores para actualizar y redefinir la estructura de los clústeres en tiempo real. De este modo, permiten capturar la evolución de los patrones presentes en los datos, ofreciendo una solución adap- tativa y eficiente ante la naturaleza cambiante de los flujos de información.</p>
+</section>
+<section id="static-results" class="slide level2">
+<h2>Static results</h2>
 <ul>
 <li><p>Dynamic Industrial Cyber Risk Modelling based on Evidence (DICYME) research project (CPP2021-009025)</p></li>
 <li><p>Proyecto de colaboración público-privada con DeNexus TECH SL.</p></li>
@@ -428,203 +526,38 @@ Running, cycling – biomechanical and physiological modeling
 <li><p>App relacionada: <a href="http://gondor.etsii.urjc.es:3804/">CRAS</a></p></li>
 </ul>
 </section>
-<section>
-<section id="docencia" class="title-slide slide level1 center">
-<h1>Docencia</h1>
-
+<section id="dynamic-results" class="slide level2">
+<h2>Dynamic results</h2>
+<p>As noted by Maglischo <span class="citation" data-cites="maglischo2003">(<a href="#/ref-maglischo2003" role="doc-biblioref" onclick="return false;">Maglischo 2003</a>)</span>, swimming is particularly suited to performance analysis.</p>
 </section>
-<section id="asignaturas-en-abierto" class="slide level2">
-<h2>Asignaturas en abierto</h2>
-<ul>
-<li><p>Aprendizaje automático: <a href="https://urjcdslab.github.io/AprendizajeAutomaticoI/" class="uri">https://urjcdslab.github.io/AprendizajeAutomaticoI/</a></p></li>
-<li><p>Inferencia estadística: <a href="https://urjcdslab.github.io/InferenciaEstadistica/" class="uri">https://urjcdslab.github.io/InferenciaEstadistica/</a></p></li>
-</ul>
-</section>
-<section id="gradosmaster" class="slide level2">
-<h2>Grados/Master</h2>
-<ul>
-<li>Matemáticas, Ciencia e Ingeniería de Datos, Biología, Ingeniería Industrial, Ingeniería de la Ciberseguridad, Inteligencia Artificial, Ingeniería Informática, Diseño y Desarrollo de Videojuegos, Máster Data Science, Máster en Dirección de Turismo Internacional, etc.</li>
-</ul>
-</section>
-<section id="seminarios" class="slide level2">
-<h2>Seminarios</h2>
-<ul>
-<li><p>Primer dashboard en Shiny:</p>
-<p><a href="https://github.com/carmenlancho/Seminario_CienciasSalud" class="uri">https://github.com/carmenlancho/Seminario_CienciasSalud</a></p></li>
-<li><p>Gráficos interactivos en R:</p>
-<p><a href="https://github.com/carmenlancho/GraficosInteractivosR" class="uri">https://github.com/carmenlancho/GraficosInteractivosR</a></p></li>
-<li><p>Generación con R de tablas y gráficos listos para publicar <a href="https://emilopezcano.github.io/seminario_fcs_urjc_2024/" class="uri">https://emilopezcano.github.io/seminario_fcs_urjc_2024/</a></p></li>
-</ul>
-</section>
-<section id="libros-cc" class="slide level2">
-<h2>Libros CC</h2>
-<ul>
-<li><p><a href="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/index.html">Estadística Aplicada a las Ciencias y la Ingeniería</a></p></li>
-<li><p><a href="https://www.lcano.com/b/iser/_book/">Introducción al software estadístico R</a></p></li>
-<li><p>Algún otro inacabado, y otros un tanto obsoletos</p></li>
-<li><p>Obra colectiva <a href="https://cdr-book.github.io">Fundamentos de ciencia de datos con R</a> editada por Gema Fernández-Avilés y José María Montero.</p></li>
-</ul>
-</section>
-<section id="proyectos-docentes" class="slide level2">
-<h2>Proyectos docentes</h2>
-<ul>
-<li><p>Proyecto de Innovación Educativa: DSEXAMS</p>
-<p>Paquete de R: <a href="https://github.com/URJCDSLab/dsexams" class="uri">https://github.com/URJCDSLab/dsexams</a> <a href="https://www.lcano.com/p/edulearn23/#/title-slide">Presentación en EDULEARN 23</a></p></li>
-</ul>
-</section>
-<section id="tfgs" class="slide level2">
-<h2>TFGs</h2>
-<ul>
-<li><p><a href="https://www.lcano.com/p/seio2023/#/title-slide">placido: un paquete y aplicación shiny para evaluar el contenido efectivo de los envases</a></p></li>
-<li><p><a href="https://www.lcano.com/p/seio2022a/#1">Unit testing in Statistical Software: an implementation in the 📦 {SixSigma} R package</a></p></li>
-</ul>
-</section>
-<section id="apps-docentes" class="slide level2">
-<h2>Apps docentes</h2>
-<ul>
-<li><p><a href="https://elcano.shinyapps.io/probability_as_relative_frequency/">Probabilidad</a></p></li>
-<li><p><a href="https://elcano.shinyapps.io/derivada/">Derivada</a></p></li>
-<li><p><a href="https://elcano.shinyapps.io/cesar/">Criptografía</a></p></li>
-<li><p><a href="https://lcano.shinyapps.io/demo-shiny-quality/">Control de calidad</a></p></li>
-<li><p><a href="https://elcano.shinyapps.io/monty_hall/">Monty Hall</a></p></li>
-</ul>
-</section></section>
-<section>
-<section id="transferencia---casos-de-éxito" class="title-slide slide level1 center">
-<h1>Transferencia - Casos de éxito</h1>
-
-</section>
-<section id="evastur" class="slide level2">
-<h2>EVASTUR</h2>
-<ul>
-<li><p>Proyecto con la empresa <a href="https://www.dephimatica.es">Dephimática</a></p></li>
-<li><p>Especializada en estadística pública</p></li>
-<li><p><em>Capacity building</em> en Ciencia de Datos</p></li>
-<li><p>Sistema de indicadores de turismo sostenible: exploración, visualización, análisis</p></li>
-</ul>
-<!-- <img src="img/dephimatica.png" width="50%"/> -->
-<div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/dephimatica.png" style="width:50.0%"></p>
-</figure>
-</div>
+<section id="evolvecluster-evolutionary-clustering-for-streaming-data" class="slide level2">
+<h2>EvolveCluster: Evolutionary Clustering for Streaming Data</h2>
+<div style="font-size: 70%;">
+<p><span class="citation" data-cites="nordahl2022evolvecluster">(<a href="#/ref-nordahl2022evolvecluster" role="doc-biblioref" onclick="return false;">Nordahl et al. 2022</a>)</span> - Segments the data stream into time-based chunks <span class="math inline">\(D_0, D_1, \ldots, D_t\)</span> - For each segment <span class="math inline">\(D_t\)</span>, clustering is initialized using centroids from <span class="math inline">\(C_{t-1}\)</span> - Applies refinement and split-check steps to adapt clusters</p>
+<h3 id="main-algorithm-steps">Main algorithm steps:</h3>
+<ol type="1">
+<li><strong>Initial clustering</strong> using <span class="math inline">\(C_{t-1}\)</span> as seeds: <span class="math inline">\(C_t \leftarrow \text{InitialPartition}(D_t, c_1, \ldots, c_k)\)</span></li>
+<li><strong>Refinement</strong> with <span class="math inline">\(k\)</span>-medoids: <span class="math inline">\(C_t \leftarrow \text{RefineSolution}(C_t)\)</span></li>
+<li><strong>Silhouette Index evaluation</strong>: <span class="math inline">\(S = \text{SI}(C_t)\)</span></li>
+<li><strong>Iterative cluster splitting</strong> based on 2-means: <span class="math inline">\(\text{If } \text{SI}(C'_t) &gt; S + \tau \Rightarrow C_t \leftarrow C'_t\)</span></li>
+</ol>
+<hr>
+<h3 id="key-metric-silhouette-index">Key Metric: Silhouette Index</h3>
+<p><span class="math inline">\(\text{SI}(C) = \frac{1}{m} \sum_{i=1}^{m} \frac{b_i - a_i}{\max(a_i, b_i)}\)</span></p>
 </div>
 </section>
-<section id="evastur---dashboard" class="slide level2">
-<h2>EVASTUR - Dashboard</h2>
+<section id="evolvecluster" class="slide level2">
+<h2>EvolveCluster</h2>
 
-<img data-src="img/evastur.png" style="width:70.0%" class="r-stretch quarto-figure-center"><div style="text-align:center">
+<img data-src="img/evolveCluster.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p>Figure extracted from <span class="citation" data-cites="nordahl2022evolvecluster">(<a href="#/ref-nordahl2022evolvecluster" role="doc-biblioref" onclick="return false;">Nordahl et al. 2022</a>)</span></p>
+</section>
+<section id="from-splash-to-stats---dashboard" class="slide level2">
+<h2>From splash to stats - Dashboard</h2>
+
+<img data-src="img/fromsplashtostats_dashboard.png" style="width:70.0%" class="r-stretch quarto-figure-center"><div style="text-align:center">
 <p>🖥️ Live demo 🤞🏻</p>
 </div>
 </section>
-<section id="epe-brasil" class="slide level2">
-<h2>EPE Brasil</h2>
-<ul>
-<li><p>Weaving Connections: A Comprehensive Diagnosis of Access to and Use of Electricity and Essential Services by Low-Income Population (MRC- SP 0366)</p></li>
-<li><p>Proyecto de transferencia con MRC Consultants and Advisors (Grupo Veolia)</p></li>
-<li><p>ETL, Modelo de datos, visualización</p></li>
-<li><p>Indicadores de pobreza energética (UCM)</p></li>
-<li><p>Presentado en reunión del G20</p></li>
-</ul>
-</section>
-<section id="obepe" class="slide level2">
-<h2>OBEPE</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/obepe.png" style="width:70.0%"></p>
-</figure>
-</div>
-<p><span class="ack">Acknowledgements:</span> <img data-src="img/logo_idb.png" height="50"> <img data-src="img/logo_epe_colors.jpg" height="50"> <img data-src="img/logo_mme.png" height="50"></p>
-<div style="text-align:center">
-<p>🖥️ Live demo 🤞🏻</p>
-</div>
-</section>
-<section id="shapypro" class="slide level2">
-<h2>SHAPYPRO</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li><a href="https://shapypro.com">Empresa biotecnológica</a></li>
-<li>Proficiency Testing</li>
-<li>Asesoría en ciencia de datos, informes parcialmente automatizados.</li>
-<li>En proceso: paquete y aplicación shiny</li>
-</ul>
-<p><img src="img/shapypro.png" style="width:60%;margin-left:auto;margin-right:auto;display:block;"></p>
-</div><div class="column" style="width:40%;">
-<blockquote class="twitter-tweet">
-<p lang="es" dir="ltr">
-</p><p>📍ENAC ha concedido recientemente la primera acreditación a <a href="https://twitter.com/shapypro?ref_src=twsrc%5Etfw"><span class="citation" data-cites="SHAPYPRO">@SHAPYPRO</span></a> como proveedor de ensayos de aptitud de eficacia biocida en productos antisépticos y desinfectantes químicos. Estos ensayos están destinados a la evaluación de los biocidas en base a su actividad (bactericida,… <a href="https://t.co/T2WMrB3EWQ">pic.twitter.com/T2WMrB3EWQ</a></p>
-<p></p>
-<p>— ENAC (<span class="citation" data-cites="ENAC_acredita">@ENAC_acredita</span>) <a href="https://twitter.com/ENAC_acredita/status/1845762208606642671?ref_src=twsrc%5Etfw">October 14, 2024</a></p>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-</div>
-</section>
-<section id="imasde-agroalimentaria" class="slide level2">
-<h2>IMASDE Agroalimentaria</h2>
-<ul>
-<li><p><a href="https://e-imasde.eu/language/es/home/" class="uri">https://e-imasde.eu/language/es/home/</a></p></li>
-<li><p>TFG aprendizaje automático</p></li>
-<li><p>Informes automatizados de I+D+i</p></li>
-<li><p><em>Capacity building</em></p></li>
-</ul>
-<div style="text-align:center">
-<p><img data-src="img/imasde.png" width="400"></p>
-</div>
-</section>
-<section id="afciot---tiva-indicators" class="slide level2">
-<h2>AfCIOT - TiVA indicators</h2>
-<ul>
-<li><p>Joint project with <a href="https://www.uneca.org">UNECA</a>, <a href="https://www.wto.org">WTO</a>, and <a href="https://www.oecd.org">OECD</a></p></li>
-<li><p>International Trade, Environmental and Employment Indicators</p></li>
-<li><p>International and multidisciplinar team</p></li>
-<li><p>Industry and product classification, gap estimation, policy simulation and <span class="red">visualisation</span></p></li>
-<li><p>Key result: A <span class="red">shiny app</span> for reporting, visualisation and policy simulation</p></li>
-<li><p>Several important challenges for the multinational scope</p></li>
-</ul>
-</section>
-<section id="afciot---tiva-indicators-1" class="slide level2">
-<h2>AfCIOT - TiVA indicators</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/afciot.png" style="width:70.0%"></p>
-</figure>
-</div>
-<p><span class="ack">Acknowledgements:</span> <img data-src="img/uneca.png" height="50"> <img data-src="img/wto.png" height="50"> <img data-src="img/oecd.png" height="50"></p>
-<div style="text-align:center">
-<p>🖥️ Live demo 🤞🏻</p>
-</div>
-</section>
-<section id="síagro---animal-production-spc" class="slide level2">
-<h2>Síagro - Animal production SPC</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li><a href="http://www.testsandtrials.com">CRO clinical and nutritional trials</a></li>
-<li>Shiny app for their customers as a value added service</li>
-<li>Important [<strong>productivity improvements</strong>]</li>
-<li>Simulation and parameterised reports</li>
-</ul>
-</div><div class="column" style="width:60%;">
-<p><img data-src="img/testsapp.png"></p>
-<p><img src="img/tests.png" style="width:50%;margin-left:auto;margin-right:auto;display:block;"></p>
-<div class="small">
-<p><a href="https://www.siagro.es" class="uri">https://www.siagro.es</a> | 🖥️ Live demo 🤞🏻</p>
-</div>
-</div>
-</div>
-</section>
-<section id="smart-cities" class="slide level2">
-<h2>Smart Cities</h2>
-<ul>
-<li><p>Use cases for Tourism, Healthcare, and Infrastructures in Madrid Region</p></li>
-<li><p>Coherent step-by-step apps for the use cases (load data - visualisation - modelling - getting results)</p></li>
-<li><p>Some use cases with <span class="red">Shiny</span>, other with Python or Power BI</p></li>
-<li><p>Example: <a href="http://www.citizenlabhub.es/cu/55" class="uri">http://www.citizenlabhub.es/cu/55</a></p></li>
-</ul>
-</section></section>
 <section>
 <section id="conclusiones-y-trabajo-futuro" class="title-slide slide level1 center">
 <h1>Conclusiones y trabajo futuro</h1>
@@ -648,6 +581,17 @@ Running, cycling – biomechanical and physiological modeling
 <li><p>Más proyectos en organismos internacionales</p></li>
 <li><p>Nueva tesis doctoral 😉</p></li>
 </ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-maglischo2003" class="csl-entry" role="doc-biblioentry">
+Maglischo, Ernest W. 2003. <em>Swimming Fastest</em>. Human Kinetics.
+</div>
+<div id="ref-nordahl2022evolvecluster" class="csl-entry" role="doc-biblioentry">
+Nordahl, Christian, Veselka Boeva, Håkan Grahn, and Marie Persson Netz. 2022. <span>“EvolveCluster: An Evolutionary Clustering Algorithm for Streaming Data.”</span> <em>Evolving Systems</em> 13 (4): 603–23.
+</div>
+</div>
 </section></section>
 <section id="gracias" class="title-slide slide level1 center">
 <h1>¡Gracias!</h1>
