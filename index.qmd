@@ -75,16 +75,6 @@ Applications]{.caption}
 :::
 :::
 
-Davenport, T. H. (2014). Analytics in sports: The new science of
-winning. International Journal of Sports Science & Coaching, 9(1), 1--2.
-
-Alamar, B. C. (2013). Sports analytics: A guide for coaches, managers,
-and other decision makers.
-
-Sampaio, J., & Leite, N. (2013). Performance analysis in team sports:
-Advances and future directions.
-
-METER ALGUNA CITA DE ARTURO CASADO
 
 ## Swimming: precision, performance, and patterns
 
@@ -116,48 +106,7 @@ Omega is the **official technical sponsor** of international swimming events and
 
 
 
-## Exploratory Data Analysis (EDA)
-
-
-En la primera parte del estudio se utilizan técnicas de clustering tradicional
-con el objetivo de identificar cómo los nadadores plantean una determinada prue-
-ba. Posteriormente, se usan técnicas innovadoras para datos en streaming con el
-objetivo de identificar grupos de carrera en directo.
-
-- Age
-
-![](img/edad.png){fig-align="center" width="50%"}
-
-
-## Exploratory Data Analysis (EDA)
-
-- Age
-
-![](img/media_puntos_edad.png){fig-align="center" width="50%"}
-
-
-## EDA
-
- - Distribution of swimmers per country
-
-![](img/mapa_nadadores.png){fig-align="center" width="50%"}
-
-
-## EDA
-
-- Reaction time
-
-![](img/reaction_time_density.png){fig-align="center" width="50%"}
-
-## EDA
-
-- Reaction time
-
-![](img/reaction_time_distance_style.png){fig-align="center" width="50%"}
-
-
-
-## EDA: speed pattern across the race
+## Race pacing analysis
 ::: columns
 ::: {.column width="50%"}
 ![](img/summer_road_to_champion_400_free.png){width="94%"} <br>
@@ -169,7 +118,7 @@ objetivo de identificar grupos de carrera en directo.
 :::
 
 
-## EDA: Different patterns/strategies
+## Race pacing analysis: Different patterns/strategies
 ::: columns
 ::: {.column width="50%"}
 ![](img/summer_road_to_champion_400_free.png){width="94%"} <br>
@@ -183,28 +132,8 @@ objetivo de identificar grupos de carrera en directo.
 
  ⟶  Clustering
 
-## EDA: Race evolution
-
-![](img/evolucion_carrera.png){fig-align="center" width="50%"}
-
- ⟶  Lack of dynamism
-
-
-## EDA: Dynamic race evolution
-
-![](img/200braza.gif){fig-align="center" width="50%"}
-
-
-
-## Approach
-
-- Static and dynamic analysis
-  - Static: clustering to find group of speed patterns
-    - Classic clustering techniques with static data  with different distances: Euclidean and Dynamic Time Warping (DTW)
-  - Dynamic: streaming data
-    - Evolutive clustering
     
-## Static vs dynamic
+## Approach: Static vs dynamic
 <div style="font-size: 80%;">
 Datasets can be categorized based on their temporal availability:
 
@@ -216,9 +145,9 @@ Traditional clustering algorithms assume full access to the entire dataset from 
 Streaming data introduces an implicit **temporal dependency**: observations at time $t$ are often related to those at time $t-1$, creating an evolving structure. **Evolutionary clustering algorithms** process data sequentially and incorporate past information to update cluster structures in real time. 
 </div>
 
+# Static methodology
 
-
-## Static methology
+## Static methodology
 
  - Main goal: find groups according to different speed swimming patterns
  - Techniques: 
@@ -237,19 +166,24 @@ Streaming data introduces an implicit **temporal dependency**: observations at t
 
 
 
-## Dynamic results
+# Dynamic methodology
 
-As noted by Maglischo [@maglischo2003], swimming is particularly suited to performance analysis.
+## Dynamic methodology
+
+-  Main goal: to detect race breaks
+
+- Based on: *EvolveCluster: an evolutionary clustering algorithm for streaming data* [@nordahl2022evolvecluster]
+
+- Adapted to swimming context: observations = swimmer gaps over time
+
+
 
 
 
 ## EvolveCluster: an evolutionary clustering algorithm
 <div style="font-size: 70%;">
 
-Paper EvolveCluster: an evolutionary clustering algorithm for streaming data [@nordahl2022evolvecluster]
-
-
-**Algorithm**
+**Algorithm EvolveCluster [@nordahl2022evolvecluster]**
 
 - $D$ is a continuous stream of data, segmented into time-based chunks $D_0, D_1, \ldots, D_t, t\rightarrow \infty$.
 
@@ -294,7 +228,7 @@ $\tau$ can also be selected following a validation measure (SI, Dunn index, etc.
 - $\tau$ is interpretable as the minimum meaningful gap between swimmers
 </div>
 
-## Detecting race breaks
+## Dynamic results: Detecting race breaks
 
 ![](img/race_breaks.png){width="70%" fig-align="center"}
 
@@ -310,20 +244,81 @@ $\tau$ can also be selected following a validation measure (SI, Dunn index, etc.
 -   Interfaz: <https://alonsogr03.shinyapps.io/interfaz/>
 
 
+
+
+## Exploratory Data Analysis (EDA)
+
+- Age
+
+![](img/edad.png){fig-align="center" width="50%"}
+
+
+## Exploratory Data Analysis (EDA)
+
+- Age
+
+![](img/media_puntos_edad.png){fig-align="center" width="50%"}
+
+
+## EDA
+
+ - Distribution of swimmers per country
+
+![](img/mapa_nadadores.png){fig-align="center" width="50%"}
+
+
+## EDA
+
+- Reaction time
+
+![](img/reaction_time_density.png){fig-align="center" width="50%"}
+
+## EDA
+
+- Reaction time
+
+![](img/reaction_time_distance_style.png){fig-align="center" width="50%"}
+
+
+## EDA: Race evolution
+
+![](img/evolucion_carrera.png){fig-align="center" width="50%"}
+
+ ⟶  Lack of dynamism
+
+
+## EDA: Dynamic race evolution
+
+![](img/200braza.gif){fig-align="center" width="50%"}
+
+
+
+
 # Conclusions and future work
 
-## Conclusions
+## What we learned
+<div style="font-size: 70%;">
+- We explored both **static** and **dynamic** clustering approaches on competitive swimming data  
+- From **splits**, we identified **strategic groupings** of swimmers based on how they paced their races  
+- By analyzing **gap-to-leader** as streaming data, we captured **race dynamics** and key moments of separation  
+- The combination of both views offers a richer understanding of **performance patterns**
 
--   R nos ayuda en gran diversidad de tareas
+Despite the limited data, our analysis provides:
 
--   R, R markdown, quarto, shiny favorece y facilita su uso
+- Tactical insights into pacing strategies
+- Recommendations for swimmers and coaches
+- A framework for interpretable and adaptable analytics
+</div>
 
--   Estamos listos para despliegues en producción, sin complejos
 
-## Future work
+## Future Work
 
-- Further refining and development of the dashboard
-- Research and test more clustering options
+- Improve and expand the **interactive dashboard**
+  - Enhanced visualizations
+  - Real-time insights during races
+- Explore and benchmark additional clustering algorithms
+- Collaborate with coaches to translate patterns into training recommendations *(aspirational goal)*
+
 
 ## References
 

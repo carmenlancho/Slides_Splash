@@ -398,10 +398,6 @@ Running, cycling – biomechanical and physiological modeling
 <p><img src="img/moneyball.jpg" style="width: 100%;"></p>
 </div>
 </div>
-<p>Davenport, T. H. (2014). Analytics in sports: The new science of winning. International Journal of Sports Science &amp; Coaching, 9(1), 1–2.</p>
-<p>Alamar, B. C. (2013). Sports analytics: A guide for coaches, managers, and other decision makers.</p>
-<p>Sampaio, J., &amp; Leite, N. (2013). Performance analysis in team sports: Advances and future directions.</p>
-<p>METER ALGUNA CITA DE ARTURO CASADO</p>
 </section>
 <section id="swimming-precision-performance-and-patterns" class="slide level2">
 <h2>Swimming: precision, performance, and patterns</h2>
@@ -432,44 +428,8 @@ Running, cycling – biomechanical and physiological modeling
 <p><strong>Data source:</strong> <a href="https://www.omegatiming.com/sports-timing-live-results">Omega Timing</a><br>
 Omega is the <strong>official technical sponsor</strong> of international swimming events and provides high-precision race data.</p>
 </section>
-<section id="exploratory-data-analysis-eda" class="slide level2">
-<h2>Exploratory Data Analysis (EDA)</h2>
-<p>En la primera parte del estudio se utilizan técnicas de clustering tradicional con el objetivo de identificar cómo los nadadores plantean una determinada prue- ba. Posteriormente, se usan técnicas innovadoras para datos en streaming con el objetivo de identificar grupos de carrera en directo.</p>
-<ul>
-<li>Age</li>
-</ul>
-
-<img data-src="img/edad.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="exploratory-data-analysis-eda-1" class="slide level2">
-<h2>Exploratory Data Analysis (EDA)</h2>
-<ul>
-<li>Age</li>
-</ul>
-
-<img data-src="img/media_puntos_edad.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="eda" class="slide level2">
-<h2>EDA</h2>
-<ul>
-<li>Distribution of swimmers per country</li>
-</ul>
-
-<img data-src="img/mapa_nadadores.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="eda-1" class="slide level2">
-<h2>EDA</h2>
-<ul>
-<li>Reaction time</li>
-</ul>
-
-<img data-src="img/reaction_time_density.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="eda-2" class="slide level2">
-<h2>EDA</h2>
-<ul>
-<li>Reaction time</li>
-</ul>
-
-<img data-src="img/reaction_time_distance_style.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="eda-speed-pattern-across-the-race" class="slide level2">
-<h2>EDA: speed pattern across the race</h2>
+<section id="race-pacing-analysis" class="slide level2">
+<h2>Race pacing analysis</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="img/summer_road_to_champion_400_free.png" style="width:94.0%"> <br></p>
@@ -478,8 +438,8 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 </div>
 </div>
 </section>
-<section id="eda-different-patternsstrategies" class="slide level2">
-<h2>EDA: Different patterns/strategies</h2>
+<section id="race-pacing-analysis-different-patternsstrategies" class="slide level2">
+<h2>Race pacing analysis: Different patterns/strategies</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="img/summer_road_to_champion_400_free.png" style="width:94.0%"> <br></p>
@@ -489,33 +449,8 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 </div>
 <p>⟶ Clustering</p>
 </section>
-<section id="eda-race-evolution" class="slide level2">
-<h2>EDA: Race evolution</h2>
-
-<img data-src="img/evolucion_carrera.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p>⟶ Lack of dynamism</p>
-</section>
-<section id="eda-dynamic-race-evolution" class="slide level2">
-<h2>EDA: Dynamic race evolution</h2>
-
-<img data-src="img/200braza.gif" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="approach" class="slide level2">
-<h2>Approach</h2>
-<ul>
-<li>Static and dynamic analysis
-<ul>
-<li>Static: clustering to find group of speed patterns
-<ul>
-<li>Classic clustering techniques with static data with different distances: Euclidean and Dynamic Time Warping (DTW)</li>
-</ul></li>
-<li>Dynamic: streaming data
-<ul>
-<li>Evolutive clustering</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="static-vs-dynamic" class="slide level2">
-<h2>Static vs dynamic</h2>
+<section id="approach-static-vs-dynamic" class="slide level2">
+<h2>Approach: Static vs dynamic</h2>
 <div style="font-size: 80%;">
 <p>Datasets can be categorized based on their temporal availability:</p>
 <ul>
@@ -526,8 +461,13 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 <p>Streaming data introduces an implicit <strong>temporal dependency</strong>: observations at time <span class="math inline">\(t\)</span> are often related to those at time <span class="math inline">\(t-1\)</span>, creating an evolving structure. <strong>Evolutionary clustering algorithms</strong> process data sequentially and incorporate past information to update cluster structures in real time.</p>
 </div>
 </section>
-<section id="static-methology" class="slide level2">
-<h2>Static methology</h2>
+<section>
+<section id="static-methodology" class="title-slide slide level1 center">
+<h1>Static methodology</h1>
+
+</section>
+<section id="static-methodology-1" class="slide level2">
+<h2>Static methodology</h2>
 <ul>
 <li>Main goal: find groups according to different speed swimming patterns</li>
 <li>Techniques:
@@ -546,16 +486,24 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 <section id="static-results-1" class="slide level2">
 <h2>Static results</h2>
 
-<img data-src="img/static_cluster_allswimmers.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="dynamic-results" class="slide level2">
-<h2>Dynamic results</h2>
-<p>As noted by Maglischo <span class="citation" data-cites="maglischo2003">(<a href="#/ref-maglischo2003" role="doc-biblioref" onclick="return false;">Maglischo 2003</a>)</span>, swimming is particularly suited to performance analysis.</p>
+<img data-src="img/static_cluster_allswimmers.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="dynamic-methodology" class="title-slide slide level1 center">
+<h1>Dynamic methodology</h1>
+
+</section>
+<section id="dynamic-methodology-1" class="slide level2">
+<h2>Dynamic methodology</h2>
+<ul>
+<li><p>Main goal: to detect race breaks</p></li>
+<li><p>Based on: <em>EvolveCluster: an evolutionary clustering algorithm for streaming data</em> <span class="citation" data-cites="nordahl2022evolvecluster">(<a href="#/ref-nordahl2022evolvecluster" role="doc-biblioref" onclick="return false;">Nordahl et al. 2022</a>)</span></p></li>
+<li><p>Adapted to swimming context: observations = swimmer gaps over time</p></li>
+</ul>
 </section>
 <section id="evolvecluster-an-evolutionary-clustering-algorithm" class="slide level2">
 <h2>EvolveCluster: an evolutionary clustering algorithm</h2>
 <div style="font-size: 70%;">
-<p>Paper EvolveCluster: an evolutionary clustering algorithm for streaming data <span class="citation" data-cites="nordahl2022evolvecluster">(<a href="#/ref-nordahl2022evolvecluster" role="doc-biblioref" onclick="return false;">Nordahl et al. 2022</a>)</span></p>
-<p><strong>Algorithm</strong></p>
+<p><strong>Algorithm EvolveCluster <span class="citation" data-cites="nordahl2022evolvecluster">(<a href="#/ref-nordahl2022evolvecluster" role="doc-biblioref" onclick="return false;">Nordahl et al. 2022</a>)</span></strong></p>
 <ul>
 <li><p><span class="math inline">\(D\)</span> is a continuous stream of data, segmented into time-based chunks <span class="math inline">\(D_0, D_1, \ldots, D_t, t\rightarrow \infty\)</span>.</p></li>
 <li><p><span class="math inline">\(D_0\)</span> is partitioned in <span class="math inline">\(k\)</span> clusters (via <span class="math inline">\(k\)</span>-means): <span class="math inline">\(C_{0}=\{C_{00},\dots, C_{0k}\}\)</span>.</p></li>
@@ -593,8 +541,8 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 </ul>
 </div>
 </section>
-<section id="detecting-race-breaks" class="slide level2">
-<h2>Detecting race breaks</h2>
+<section id="dynamic-results-detecting-race-breaks" class="slide level2">
+<h2>Dynamic results: Detecting race breaks</h2>
 
 <img data-src="img/race_breaks.png" style="width:70.0%" class="r-stretch quarto-figure-center"></section>
 <section id="from-splash-to-stats---dashboard" class="slide level2">
@@ -607,32 +555,90 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 <li>Interfaz: <a href="https://alonsogr03.shinyapps.io/interfaz/" class="uri">https://alonsogr03.shinyapps.io/interfaz/</a></li>
 </ul>
 </section>
+<section id="exploratory-data-analysis-eda" class="slide level2">
+<h2>Exploratory Data Analysis (EDA)</h2>
+<ul>
+<li>Age</li>
+</ul>
+
+<img data-src="img/edad.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="exploratory-data-analysis-eda-1" class="slide level2">
+<h2>Exploratory Data Analysis (EDA)</h2>
+<ul>
+<li>Age</li>
+</ul>
+
+<img data-src="img/media_puntos_edad.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="eda" class="slide level2">
+<h2>EDA</h2>
+<ul>
+<li>Distribution of swimmers per country</li>
+</ul>
+
+<img data-src="img/mapa_nadadores.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="eda-1" class="slide level2">
+<h2>EDA</h2>
+<ul>
+<li>Reaction time</li>
+</ul>
+
+<img data-src="img/reaction_time_density.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="eda-2" class="slide level2">
+<h2>EDA</h2>
+<ul>
+<li>Reaction time</li>
+</ul>
+
+<img data-src="img/reaction_time_distance_style.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="eda-race-evolution" class="slide level2">
+<h2>EDA: Race evolution</h2>
+
+<img data-src="img/evolucion_carrera.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p>⟶ Lack of dynamism</p>
+</section>
+<section id="eda-dynamic-race-evolution" class="slide level2">
+<h2>EDA: Dynamic race evolution</h2>
+
+<img data-src="img/200braza.gif" style="width:50.0%" class="r-stretch quarto-figure-center"></section></section>
 <section>
 <section id="conclusions-and-future-work" class="title-slide slide level1 center">
 <h1>Conclusions and future work</h1>
 
 </section>
-<section id="conclusions" class="slide level2">
-<h2>Conclusions</h2>
+<section id="what-we-learned" class="slide level2">
+<h2>What we learned</h2>
+<div style="font-size: 70%;">
 <ul>
-<li><p>R nos ayuda en gran diversidad de tareas</p></li>
-<li><p>R, R markdown, quarto, shiny favorece y facilita su uso</p></li>
-<li><p>Estamos listos para despliegues en producción, sin complejos</p></li>
+<li>We explored both <strong>static</strong> and <strong>dynamic</strong> clustering approaches on competitive swimming data<br>
+</li>
+<li>From <strong>splits</strong>, we identified <strong>strategic groupings</strong> of swimmers based on how they paced their races<br>
+</li>
+<li>By analyzing <strong>gap-to-leader</strong> as streaming data, we captured <strong>race dynamics</strong> and key moments of separation<br>
+</li>
+<li>The combination of both views offers a richer understanding of <strong>performance patterns</strong></li>
 </ul>
+<p>Despite the limited data, our analysis provides:</p>
+<ul>
+<li>Tactical insights into pacing strategies</li>
+<li>Recommendations for swimmers and coaches</li>
+<li>A framework for interpretable and adaptable analytics</li>
+</ul>
+</div>
 </section>
 <section id="future-work" class="slide level2">
-<h2>Future work</h2>
+<h2>Future Work</h2>
 <ul>
-<li>Further refining and development of the dashboard</li>
-<li>Research and test more clustering options</li>
+<li>Improve and expand the <strong>interactive dashboard</strong>
+<ul>
+<li>Enhanced visualizations</li>
+<li>Real-time insights during races</li>
+</ul></li>
+<li>Explore and benchmark additional clustering algorithms</li>
+<li>Collaborate with coaches to translate patterns into training recommendations <em>(aspirational goal)</em></li>
 </ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-maglischo2003" class="csl-entry" role="doc-biblioentry">
-Maglischo, Ernest W. 2003. <em>Swimming Fastest</em>. Human Kinetics.
-</div>
 <div id="ref-nordahl2022evolvecluster" class="csl-entry" role="doc-biblioentry">
 Nordahl, Christian, Veselka Boeva, Håkan Grahn, and Marie Persson Netz. 2022. <span>“EvolveCluster: An Evolutionary Clustering Algorithm for Streaming Data.”</span> <em>Evolving Systems</em> 13 (4): 603–23.
 </div>
