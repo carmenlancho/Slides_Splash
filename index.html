@@ -353,12 +353,8 @@
 <li>Sport Analytics</li>
 <li>Swimming</li>
 </ul></li>
-<li>Static analysis</li>
-<li>The need for dynamism
-<ul>
-<li>Clustering streaming data</li>
+<li>Static vs dynamic clustering analysis</li>
 <li>App in RShiny</li>
-</ul></li>
 </ul>
 </section>
 <section id="data-science" class="slide level2">
@@ -580,12 +576,27 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 </section>
 <section id="evolvecluster-adapted" class="slide level2">
 <h2>EvolveCluster adapted</h2>
-<p>PONER CÓMO LO HA ADAPTADO ALONSO</p>
+<div style="font-size: 70%;">
+<p><strong>Goal:</strong> Detect race breaks</p>
+<p><strong>Input:</strong> Time gap from race leader</p>
+<ul>
+<li>Splits are evaluated <strong>within each cluster</strong>.</li>
+<li>Observations (swimmers) are sorted by gap to leader.</li>
+<li>A split occurs if two consecutive swimmers are <strong>separated by more than</strong> <span class="math inline">\(\tau\)</span></li>
+</ul>
+<h3 id="refinement-strategy">Refinement strategy:</h3>
+<p>Let <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_{i+1}\)</span> be consecutive swimmers in cluster <span class="math inline">\(C_l\)</span>. If <span class="math inline">\(d(x_i, x_{i+1}) &gt; \tau\)</span>, split the cluster at that point.</p>
+<p><span class="math inline">\(\tau\)</span> can also be selected following a validation measure (SI, Dunn index, etc.)</p>
+<h3 id="advantages">Advantages:</h3>
+<ul>
+<li><span class="math inline">\(\tau\)</span> is interpretable as the minimum meaningful gap between swimmers</li>
+</ul>
+</div>
 </section>
-<section id="where-the-race-breaks" class="slide level2">
-<h2>Where the race breaks?</h2>
-<p>IMAGEN DE CUANDO SE ROMPE LA CARRERA</p>
-</section>
+<section id="detecting-race-breaks" class="slide level2">
+<h2>Detecting race breaks</h2>
+
+<img data-src="img/race_breaks.png" style="width:70.0%" class="r-stretch quarto-figure-center"></section>
 <section id="from-splash-to-stats---dashboard" class="slide level2">
 <h2>From splash to stats - Dashboard</h2>
 

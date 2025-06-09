@@ -25,10 +25,8 @@ bibliography: references.bib
     -   Data Science
     -   Sport Analytics
     -   Swimming
--   Static analysis
--   The need for dynamism
-    -   Clustering streaming data
-    -   App in RShiny
+-   Static vs dynamic clustering analysis
+-   App in RShiny
 
 ## Data Science
 
@@ -277,12 +275,28 @@ Paper EvolveCluster: an evolutionary clustering algorithm for streaming data [@n
 Figure extracted from [@nordahl2022evolvecluster]
 
 ## EvolveCluster adapted
+<div style="font-size: 70%;">
+**Goal:** Detect race breaks
 
-PONER CÓMO LO HA ADAPTADO ALONSO
+**Input:** Time gap from race leader
 
-## Where the race breaks?
+- Splits are evaluated **within each cluster**.
+- Observations (swimmers) are sorted by gap to leader.
+- A split occurs if two consecutive swimmers are **separated by more than** $\tau$
 
-IMAGEN DE CUANDO SE ROMPE LA CARRERA
+### Refinement strategy:
+
+Let $x_i$ and $x_{i+1}$ be consecutive swimmers in cluster $C_l$.  If $d(x_i, x_{i+1}) > \tau$, split the cluster at that point. 
+
+$\tau$ can also be selected following a validation measure (SI, Dunn index, etc.)
+
+### Advantages:
+- $\tau$ is interpretable as the minimum meaningful gap between swimmers
+</div>
+
+## Detecting race breaks
+
+![](img/race_breaks.png){width="70%" fig-align="center"}
 
 
 ## From splash to stats - Dashboard
