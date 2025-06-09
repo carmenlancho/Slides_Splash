@@ -12,7 +12,7 @@ format:
       numbers: false
     show-slide-number: all
     slide-number: true
-    self-contained: false
+    self-contained: true
 editor: 
   markdown: 
     wrap: 72
@@ -336,8 +336,6 @@ Despite the limited data, our analysis provides:
 
 <https://www.datasciencelab.es>
 
-Slides: <https://urjcdslab.github.io/rmadrid92>
 
-\
 
 **Questions?**
