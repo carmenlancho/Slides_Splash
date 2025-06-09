@@ -50,8 +50,8 @@ Applications]{.caption}
     analyze and improve athletic performance.
 -   Gained momentum in the early 2000s with advances in tracking
     systems, video analysis, and machine learning.
--   Used in coaching, injury prevention, game strategy, talent
-    identification, and fan engagement.
+-   Used in coaching, injury prevention, game strategy or talent
+    identification.
 
 ## Sport Analytics: when sport meets data
 
@@ -63,7 +63,7 @@ Applications]{.caption}
 
 <li><em>Moneyball</em></li>
 
-<li>NBA -- player tracking, shot charts, load management</li>
+<li>NBA -- player tracking, shot charts </li>
 
 <li>Football -- GPS-based workload monitoring</li>
 
@@ -95,7 +95,7 @@ METER ALGUNA CITA DE ARTURO CASADO
 -   Small performance changes (e.g., 0.1s) can determine podiums ---
     **data granularity matters**.
 -   Technology enables detailed monitoring:
-    -   Wearable sensors (IMUs)
+    -   Wearable sensors
     -   Underwater cameras
     -   Biomechanical modeling
     -   Lactate and heart rate tracking
@@ -108,19 +108,23 @@ Student and domain expert: Alonso González Romero
 
 ## Data
 
-aplica técnicas de ciencia de datos al análisis del
-rendimiento en natación competitiva, utilizando los resultados del Campeonato
-Mundial de Natación Budapest 2024 en piscina de 25 metros.
+This work applies data science techniques to analyze **performance in competitive swimming**, using results from the **2024 World Swimming Championships (Budapest)** in a **25-meter pool**.
+
+- Focus: race times, splits, strokes, and event-level metrics
+- Context: elite international competition
+
+**Data source:** [Omega Timing](https://www.omegatiming.com/sports-timing-live-results)  
+Omega is the **official technical sponsor** of international swimming events and provides high-precision race data.
+
+
+
+## Exploratory Data Analysis (EDA)
+
+
 En la primera parte del estudio se utilizan técnicas de clustering tradicional
 con el objetivo de identificar cómo los nadadores plantean una determinada prue-
 ba. Posteriormente, se usan técnicas innovadoras para datos en streaming con el
 objetivo de identificar grupos de carrera en directo.
-
-Data source: [Omega timing](https://www.omegatiming.com/sports-timing-live-results)
-Omega es patrocinador
-técnico principal de las competiciones de natación a nivel internacional
-
-## Exploratory Data Analysis (EDA)
 
 - Age
 
@@ -203,39 +207,37 @@ técnico principal de las competiciones de natación a nivel internacional
     - Evolutive clustering
     
 ## Static vs dynamic
+<div style="font-size: 80%;">
+Datasets can be categorized based on their temporal availability:
 
-En el mundo de la Ciencia de datos, existen dos tipos de datos dependiendo
-de la disponibilidad temporal:
-Datos estáticos: Están completamente disponibles desde el inicio del es-
-tudio. Se pueden explorar, limpiar y entrenar con tranquilidad.
-Datos en streaming (flujo continuo): Los datos van llegando en tiempo
-real, de forma continua.
-Los algoritmos de clustering tradicionales, explicados en la sección Clustering,
-se basan en la suposición de que el conjunto de datos completo está disponible
-desde el inicio del análisis. Este enfoque resulta adecuado en contextos estáticos,
-donde los datos no varı́an con el tiempo y se puede aplicar el agrupamiento de
-forma global y estable. Sin embargo, en entornos dinámicos donde los datos se
-generan de forma continua —como ocurre en los flujos de datos o data streams—
-este tipo de enfoque pierde su validez.
-Una caracterı́stica esencial de los datos en streaming es la existencia de una
-dependencia temporal implı́cita: las observaciones que llegan en un instante dado
-suelen estar relacionadas con las generadas previamente, lo que introduce un
-componente evolutivo en la estructura de los datos. Esto hace que los algoritmos
-de clustering diseñados para datos estáticos se vuelvan rápidamente obsoletos, ya
-que no son capaces de adaptarse a los cambios en la distribución o caracterı́sticas
-de los datos que se van incorporando.
-Como respuesta a esta limitación, surgen los algoritmos de clustering evo-
-lutivo, diseñados especı́ficamente para trabajar en contextos de datos en flujo.
-Estos algoritmos no solo procesan los datos de forma secuencial, sino que utilizan
-la información obtenida en iteraciones anteriores para actualizar y redefinir la
-estructura de los clústeres en tiempo real. De este modo, permiten capturar la
-evolución de los patrones presentes en los datos, ofreciendo una solución adap-
-tativa y eficiente ante la naturaleza cambiante de los flujos de información.
+- **Static data**: Fully available from the beginning of the study. These datasets can be explored, cleaned, and modeled comfortably.
+- **Streaming data**: Arrives continuously in real time.
 
+Traditional clustering algorithms assume full access to the entire dataset from the start.
+
+Streaming data introduces an implicit **temporal dependency**: observations at time $t$ are often related to those at time $t-1$, creating an evolving structure. **Evolutionary clustering algorithms** process data sequentially and incorporate past information to update cluster structures in real time. 
+</div>
+
+
+
+## Static methology
+
+ - Main goal: find groups according to different speed swimming patterns
+ - Techniques: 
+   - $k$-means
+   - $k$-medoids
+   - Agglomerative hierarchical clustering
+   - Similarity measures: Euclidean distance and Dynamic Time Warping
+   
+## Static results
+
+![](img/static_cluster_centroids_analysis.png){fig-align="center" width="50%"}
 
 ## Static results
 
-MINI RESUMEN TÉCNICAS USADAS Y EJEMPLOS DE GRUPOS CON INTERPRETACIÓN
+![](img/static_cluster_allswimmers.png){fig-align="center" width="50%"}
+
+
 
 ## Dynamic results
 
@@ -243,7 +245,7 @@ As noted by Maglischo [@maglischo2003], swimming is particularly suited to perfo
 
 
 
-## EvolveCluster: Evolutionary Clustering for Streaming Data
+## EvolveCluster: an evolutionary clustering algorithm
 <div style="font-size: 70%;">
 [@nordahl2022evolvecluster]
 - Segments the data stream into time-based chunks $D_0, D_1, \ldots, D_t$
@@ -293,6 +295,7 @@ IMAGEN DE CUANDO SE ROMPE LA CARRERA
 🖥️ Live demo 🤞🏻
 :::
 
+-   Interfaz: <https://alonsogr03.shinyapps.io/interfaz/>
 
 
 # Conclusions and future work

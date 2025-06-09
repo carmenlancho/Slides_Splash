@@ -376,7 +376,7 @@
 <ul>
 <li>The application of <strong>data science, statistics, and technology</strong> to analyze and improve athletic performance.</li>
 <li>Gained momentum in the early 2000s with advances in tracking systems, video analysis, and machine learning.</li>
-<li>Used in coaching, injury prevention, game strategy, talent identification, and fan engagement.</li>
+<li>Used in coaching, injury prevention, game strategy or talent identification.</li>
 </ul>
 </section>
 <section id="sport-analytics-when-sport-meets-data-1" class="slide level2">
@@ -389,7 +389,7 @@
 <em>Moneyball</em>
 </li>
 <li>
-NBA – player tracking, shot charts, load management
+NBA – player tracking, shot charts
 </li>
 <li>
 Football – GPS-based workload monitoring
@@ -414,7 +414,7 @@ Running, cycling – biomechanical and physiological modeling
 <li>Small performance changes (e.g., 0.1s) can determine podiums — <strong>data granularity matters</strong>.</li>
 <li>Technology enables detailed monitoring:
 <ul>
-<li>Wearable sensors (IMUs)</li>
+<li>Wearable sensors</li>
 <li>Underwater cameras</li>
 <li>Biomechanical modeling</li>
 <li>Lactate and heart rate tracking</li>
@@ -428,11 +428,17 @@ Running, cycling – biomechanical and physiological modeling
 <img data-src="img/alonso.png" width="600" class="r-stretch quarto-figure-center"></section>
 <section id="data" class="slide level2">
 <h2>Data</h2>
-<p>aplica técnicas de ciencia de datos al análisis del rendimiento en natación competitiva, utilizando los resultados del Campeonato Mundial de Natación Budapest 2024 en piscina de 25 metros. En la primera parte del estudio se utilizan técnicas de clustering tradicional con el objetivo de identificar cómo los nadadores plantean una determinada prue- ba. Posteriormente, se usan técnicas innovadoras para datos en streaming con el objetivo de identificar grupos de carrera en directo.</p>
-<p>Data source: <a href="https://www.omegatiming.com/sports-timing-live-results">Omega timing</a> Omega es patrocinador técnico principal de las competiciones de natación a nivel internacional</p>
+<p>This work applies data science techniques to analyze <strong>performance in competitive swimming</strong>, using results from the <strong>2024 World Swimming Championships (Budapest)</strong> in a <strong>25-meter pool</strong>.</p>
+<ul>
+<li>Focus: race times, splits, strokes, and event-level metrics</li>
+<li>Context: elite international competition</li>
+</ul>
+<p><strong>Data source:</strong> <a href="https://www.omegatiming.com/sports-timing-live-results">Omega Timing</a><br>
+Omega is the <strong>official technical sponsor</strong> of international swimming events and provides high-precision race data.</p>
 </section>
 <section id="exploratory-data-analysis-eda" class="slide level2">
 <h2>Exploratory Data Analysis (EDA)</h2>
+<p>En la primera parte del estudio se utilizan técnicas de clustering tradicional con el objetivo de identificar cómo los nadadores plantean una determinada prue- ba. Posteriormente, se usan técnicas innovadoras para datos en streaming con el objetivo de identificar grupos de carrera en directo.</p>
 <ul>
 <li>Age</li>
 </ul>
@@ -514,18 +520,43 @@ Running, cycling – biomechanical and physiological modeling
 </section>
 <section id="static-vs-dynamic" class="slide level2">
 <h2>Static vs dynamic</h2>
-<p>En el mundo de la Ciencia de datos, existen dos tipos de datos dependiendo de la disponibilidad temporal: Datos estáticos: Están completamente disponibles desde el inicio del es- tudio. Se pueden explorar, limpiar y entrenar con tranquilidad. Datos en streaming (flujo continuo): Los datos van llegando en tiempo real, de forma continua. Los algoritmos de clustering tradicionales, explicados en la sección Clustering, se basan en la suposición de que el conjunto de datos completo está disponible desde el inicio del análisis. Este enfoque resulta adecuado en contextos estáticos, donde los datos no varı́an con el tiempo y se puede aplicar el agrupamiento de forma global y estable. Sin embargo, en entornos dinámicos donde los datos se generan de forma continua —como ocurre en los flujos de datos o data streams— este tipo de enfoque pierde su validez. Una caracterı́stica esencial de los datos en streaming es la existencia de una dependencia temporal implı́cita: las observaciones que llegan en un instante dado suelen estar relacionadas con las generadas previamente, lo que introduce un componente evolutivo en la estructura de los datos. Esto hace que los algoritmos de clustering diseñados para datos estáticos se vuelvan rápidamente obsoletos, ya que no son capaces de adaptarse a los cambios en la distribución o caracterı́sticas de los datos que se van incorporando. Como respuesta a esta limitación, surgen los algoritmos de clustering evo- lutivo, diseñados especı́ficamente para trabajar en contextos de datos en flujo. Estos algoritmos no solo procesan los datos de forma secuencial, sino que utilizan la información obtenida en iteraciones anteriores para actualizar y redefinir la estructura de los clústeres en tiempo real. De este modo, permiten capturar la evolución de los patrones presentes en los datos, ofreciendo una solución adap- tativa y eficiente ante la naturaleza cambiante de los flujos de información.</p>
+<div style="font-size: 80%;">
+<p>Datasets can be categorized based on their temporal availability:</p>
+<ul>
+<li><strong>Static data</strong>: Fully available from the beginning of the study. These datasets can be explored, cleaned, and modeled comfortably.</li>
+<li><strong>Streaming data</strong>: Arrives continuously in real time.</li>
+</ul>
+<p>Traditional clustering algorithms assume full access to the entire dataset from the start.</p>
+<p>Streaming data introduces an implicit <strong>temporal dependency</strong>: observations at time <span class="math inline">\(t\)</span> are often related to those at time <span class="math inline">\(t-1\)</span>, creating an evolving structure. <strong>Evolutionary clustering algorithms</strong> process data sequentially and incorporate past information to update cluster structures in real time.</p>
+</div>
+</section>
+<section id="static-methology" class="slide level2">
+<h2>Static methology</h2>
+<ul>
+<li>Main goal: find groups according to different speed swimming patterns</li>
+<li>Techniques:
+<ul>
+<li><span class="math inline">\(k\)</span>-means</li>
+<li><span class="math inline">\(k\)</span>-medoids</li>
+<li>Agglomerative hierarchical clustering</li>
+<li>Similarity measures: Euclidean distance and Dynamic Time Warping</li>
+</ul></li>
+</ul>
 </section>
 <section id="static-results" class="slide level2">
 <h2>Static results</h2>
-<p>MINI RESUMEN TÉCNICAS USADAS Y EJEMPLOS DE GRUPOS CON INTERPRETACIÓN</p>
-</section>
+
+<img data-src="img/static_cluster_centroids_analysis.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
+<section id="static-results-1" class="slide level2">
+<h2>Static results</h2>
+
+<img data-src="img/static_cluster_allswimmers.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
 <section id="dynamic-results" class="slide level2">
 <h2>Dynamic results</h2>
 <p>As noted by Maglischo <span class="citation" data-cites="maglischo2003">(<a href="#/ref-maglischo2003" role="doc-biblioref" onclick="return false;">Maglischo 2003</a>)</span>, swimming is particularly suited to performance analysis.</p>
 </section>
-<section id="evolvecluster-evolutionary-clustering-for-streaming-data" class="slide level2">
-<h2>EvolveCluster: Evolutionary Clustering for Streaming Data</h2>
+<section id="evolvecluster-an-evolutionary-clustering-algorithm" class="slide level2">
+<h2>EvolveCluster: an evolutionary clustering algorithm</h2>
 <div style="font-size: 70%;">
 <p><span class="citation" data-cites="nordahl2022evolvecluster">(<a href="#/ref-nordahl2022evolvecluster" role="doc-biblioref" onclick="return false;">Nordahl et al. 2022</a>)</span> - Segments the data stream into time-based chunks <span class="math inline">\(D_0, D_1, \ldots, D_t\)</span> - For each segment <span class="math inline">\(D_t\)</span>, clustering is initialized using centroids from <span class="math inline">\(C_{t-1}\)</span> - Applies refinement and split-check steps to adapt clusters</p>
 <h3 id="main-algorithm-steps">Main algorithm steps:</h3>
@@ -559,6 +590,9 @@ Running, cycling – biomechanical and physiological modeling
 <img data-src="img/fromsplashtostats_dashboard.png" style="width:70.0%" class="r-stretch quarto-figure-center"><div style="text-align:center">
 <p>🖥️ Live demo 🤞🏻</p>
 </div>
+<ul>
+<li>Interfaz: <a href="https://alonsogr03.shinyapps.io/interfaz/" class="uri">https://alonsogr03.shinyapps.io/interfaz/</a></li>
+</ul>
 </section>
 <section>
 <section id="conclusions-and-future-work" class="title-slide slide level1 center">
