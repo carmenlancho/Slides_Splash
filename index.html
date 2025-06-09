@@ -558,17 +558,19 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 <section id="evolvecluster-an-evolutionary-clustering-algorithm" class="slide level2">
 <h2>EvolveCluster: an evolutionary clustering algorithm</h2>
 <div style="font-size: 70%;">
-<p><span class="citation" data-cites="nordahl2022evolvecluster">(<a href="#/ref-nordahl2022evolvecluster" role="doc-biblioref" onclick="return false;">Nordahl et al. 2022</a>)</span> - Segments the data stream into time-based chunks <span class="math inline">\(D_0, D_1, \ldots, D_t\)</span> - For each segment <span class="math inline">\(D_t\)</span>, clustering is initialized using centroids from <span class="math inline">\(C_{t-1}\)</span> - Applies refinement and split-check steps to adapt clusters</p>
-<h3 id="main-algorithm-steps">Main algorithm steps:</h3>
-<ol type="1">
-<li><strong>Initial clustering</strong> using <span class="math inline">\(C_{t-1}\)</span> as seeds: <span class="math inline">\(C_t \leftarrow \text{InitialPartition}(D_t, c_1, \ldots, c_k)\)</span></li>
-<li><strong>Refinement</strong> with <span class="math inline">\(k\)</span>-medoids: <span class="math inline">\(C_t \leftarrow \text{RefineSolution}(C_t)\)</span></li>
-<li><strong>Silhouette Index evaluation</strong>: <span class="math inline">\(S = \text{SI}(C_t)\)</span></li>
-<li><strong>Iterative cluster splitting</strong> based on 2-means: <span class="math inline">\(\text{If } \text{SI}(C'_t) &gt; S + \tau \Rightarrow C_t \leftarrow C'_t\)</span></li>
-</ol>
-<hr>
-<h3 id="key-metric-silhouette-index">Key Metric: Silhouette Index</h3>
-<p><span class="math inline">\(\text{SI}(C) = \frac{1}{m} \sum_{i=1}^{m} \frac{b_i - a_i}{\max(a_i, b_i)}\)</span></p>
+<p>Paper EvolveCluster: an evolutionary clustering algorithm for streaming data <span class="citation" data-cites="nordahl2022evolvecluster">(<a href="#/ref-nordahl2022evolvecluster" role="doc-biblioref" onclick="return false;">Nordahl et al. 2022</a>)</span></p>
+<p><strong>Algorithm</strong></p>
+<ul>
+<li><p><span class="math inline">\(D\)</span> is a continuous stream of data, segmented into time-based chunks <span class="math inline">\(D_0, D_1, \ldots, D_t, t\rightarrow \infty\)</span>.</p></li>
+<li><p><span class="math inline">\(D_0\)</span> is partitioned in <span class="math inline">\(k\)</span> clusters (via <span class="math inline">\(k\)</span>-means): <span class="math inline">\(C_{0}=\{C_{00},\dots, C_{0k}\}\)</span>.</p></li>
+<li><p>For each segment <span class="math inline">\(D_t, t\neq0\)</span>, <span class="math inline">\(k\)</span>-means is initialized using centroids from <span class="math inline">\(C_{t-1}\)</span></p></li>
+<li><p>Centroids of <span class="math inline">\(C_{t-1}\)</span> are removed and empty clusters are deleted.</p></li>
+<li><p>New centroides are calculated and the partition <span class="math inline">\(C_t\)</span> is refined:</p>
+<ul>
+<li><p>Any cluster should be split into two? Apply <span class="math inline">\(2\)</span>-means for each cluster with the two furthest points as initial centroids: <span class="math inline">\(C'_t\)</span></p></li>
+<li><p>The two options of partitions are evaluated by a validation measure (e.g.&nbsp;Silhouette index SI): <span class="math inline">\(\text{If } \text{SI}(C'_t) &gt; \text{SI}(C_t) + \tau \Rightarrow C_t \leftarrow C'_t\)</span></p></li>
+</ul></li>
+</ul>
 </div>
 </section>
 <section id="evolvecluster" class="slide level2">
@@ -610,12 +612,8 @@ Omega is the <strong>official technical sponsor</strong> of international swimmi
 <section id="future-work" class="slide level2">
 <h2>Future work</h2>
 <ul>
-<li><p>Paquete de R asociado a Tesis doctoral</p></li>
-<li><p>Más dashboard</p></li>
-<li><p>Mejorar la generación de apuntes con R</p></li>
-<li><p>Más proyectos con empresas</p></li>
-<li><p>Más proyectos en organismos internacionales</p></li>
-<li><p>Nueva tesis doctoral 😉</p></li>
+<li>Further refining and development of the dashboard</li>
+<li>Research and test more clustering options</li>
 </ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">

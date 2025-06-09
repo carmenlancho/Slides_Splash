@@ -247,28 +247,26 @@ As noted by Maglischo [@maglischo2003], swimming is particularly suited to perfo
 
 ## EvolveCluster: an evolutionary clustering algorithm
 <div style="font-size: 70%;">
-[@nordahl2022evolvecluster]
-- Segments the data stream into time-based chunks $D_0, D_1, \ldots, D_t$
-- For each segment $D_t$, clustering is initialized using centroids from $C_{t-1}$
-- Applies refinement and split-check steps to adapt clusters
 
-### Main algorithm steps:
+Paper EvolveCluster: an evolutionary clustering algorithm for streaming data [@nordahl2022evolvecluster]
 
-1. **Initial clustering** using $C_{t-1}$ as seeds:
-   $C_t \leftarrow \text{InitialPartition}(D_t, c_1, \ldots, c_k)$
-2. **Refinement** with $k$-medoids:
-   $C_t \leftarrow \text{RefineSolution}(C_t)$
-3. **Silhouette Index evaluation**:
-   $S = \text{SI}(C_t)$
-4. **Iterative cluster splitting** based on 2-means:
-   $\text{If } \text{SI}(C'_t) > S + \tau \Rightarrow C_t \leftarrow C'_t$
 
----
+**Algorithm**
 
-### Key Metric: Silhouette Index
+- $D$ is a continuous stream of data, segmented into time-based chunks $D_0, D_1, \ldots, D_t, t\rightarrow \infty$.
 
-$\text{SI}(C) = \frac{1}{m} \sum_{i=1}^{m} \frac{b_i - a_i}{\max(a_i, b_i)}$
+- $D_0$ is partitioned in $k$ clusters (via $k$-means): $C_{0}=\{C_{00},\dots, C_{0k}\}$.
 
+- For each segment $D_t, t\neq0$, $k$-means is initialized using centroids from $C_{t-1}$
+
+- Centroids of $C_{t-1}$ are removed and empty clusters are deleted.
+
+- New centroides are calculated and the partition $C_t$ is refined:
+
+  - Any cluster should be split into two? Apply $2$-means for each cluster with the two furthest points as initial centroids: $C'_t$
+  
+  - The two options of partitions are evaluated by a validation measure (e.g. Silhouette index SI): $\text{If } \text{SI}(C'_t) > \text{SI}(C_t)  + \tau \Rightarrow C_t \leftarrow C'_t$
+  
 </div>
 
 
@@ -310,17 +308,8 @@ IMAGEN DE CUANDO SE ROMPE LA CARRERA
 
 ## Future work
 
--   Paquete de R asociado a Tesis doctoral
-
--   Más dashboard
-
--   Mejorar la generación de apuntes con R
-
--   Más proyectos con empresas
-
--   Más proyectos en organismos internacionales
-
--   Nueva tesis doctoral 😉
+- Further refining and development of the dashboard
+- Research and test more clustering options
 
 ## References
 
